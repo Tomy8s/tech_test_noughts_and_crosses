@@ -1,14 +1,15 @@
 class Game
   attr_reader :board, :current_player
   def initialize
-    @board = Array.new(3, Array.new(3))
+    @board = Array.new(3) { Array.new(3) }
     @current_player = :x
   end
 
   def play(x,y)
     check_args(x,y)
-    board[y][x] ||= current_player
+    @board[x][y] ||= current_player
     change_turns
+    board
   end
 
   def check_args(x,y)

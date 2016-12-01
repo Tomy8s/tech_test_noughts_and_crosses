@@ -18,13 +18,13 @@ describe Game do
 
     it 'inserts a symbol into the board at the given coordinates' do
       subject.play(2,1)
-      expect(subject.board[1][2]).to be :x
+      expect(subject.board[2][1]).to be :x
     end
 
     it 'does not allow overwriting of cell' do
       subject.play(2,1)
       subject.play(2,1)
-      expect(subject.board[1][2]).to be :x
+      expect(subject.board[2][1]).to be :x
     end
   end
 
