@@ -29,9 +29,16 @@ describe Game do
     end
   end
 
-  describe '#x_to_play?' do
-    it 'inits as true' do
-      expect(subject.x_to_play).to be true
+  describe '#current_player' do
+    it 'inits as :x' do
+      expect(subject.current_player).to be :x
     end 
+  end
+
+  describe '#change_turns' do
+    it 'changes @current_player from :x to :o' do
+      subject.change_turns
+      expect(subject.current_player).to be :o
+    end
   end
 end
