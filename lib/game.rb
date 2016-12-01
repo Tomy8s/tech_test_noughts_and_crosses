@@ -1,3 +1,5 @@
+require 'matrix'
+
 class Game
   attr_accessor :board, :current_player
   def initialize
@@ -25,7 +27,7 @@ class Game
 
   def three_in_a_row?
     board.each do |row|
-      if !row[0].nil? && !row.include?(!row[0])
+      if !row[0].nil? && row.uniq.size == 1
         return "#{row[0].capitalize} wins with three in a row!"
       end
     end
@@ -33,12 +35,11 @@ class Game
   end
 
   def three_in_a_column?
+    columns = Matrix[board[0], board[1], board[2]]
     (0..2).each do |col|
-      if !board[0][col].nil?
-        column = [board[0][col], board[1][col], board[2][col]]
-        if !column.include?(!column[0])
-          return "#{column[0].capitalize} wins with three in a column!"
-        end
+      column = columns.column(col).to_a
+      if !column[0].nil? && column.uniq.size == 1
+        return "#{column[0].capitalize} wins with three in a column!"
       end
     end
     false

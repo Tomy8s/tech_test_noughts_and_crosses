@@ -109,5 +109,12 @@ describe Game do
       subject.board[2] = [nil, nil, :x]
       expect(subject.result).to eq "X wins with three in a column!"
     end
+
+    it 'returns the winner for a diagonal NW - SE of 3' do
+      subject.board[0] = [:x, nil, nil]
+      subject.board[1] = [nil, :x, nil]
+      subject.board[2] = [nil, nil, :x]
+      expect(subject.result).to eq "X wins with three diagonaly!"
+    end
   end
 end
