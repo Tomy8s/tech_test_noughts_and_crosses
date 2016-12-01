@@ -17,16 +17,31 @@ class Game
   end
 
   def result
+    three_in_a_row? or
+    three_in_a_column? or
     "not finished"
-    check_row
+
   end
 
-  def check_row
+  def three_in_a_row?
     board.each do |row|
       if !row[0].nil? && !row.include?(!row[0])
-        return row[0]
+        return "#{row[0].capitalize} wins with three in a row!"
       end
     end
+    false
+  end
+
+  def three_in_a_column?
+    (0..2).each do |col|
+      if !board[0][col].nil?
+        column = [board[0][col], board[1][col], board[2][col]]
+        if !column.include?(!column[0])
+          return "#{column[0].capitalize} wins with three in a column!"
+        end
+      end
+    end
+    false
   end
 
   def check_args(x,y)
