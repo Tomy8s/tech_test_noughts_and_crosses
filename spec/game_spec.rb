@@ -26,6 +26,13 @@ describe Game do
       subject.play(2,1)
       expect(subject.board[2][1]).to be :x
     end
+
+    it 'allows a player to retake their go, instead of overwriting' do
+      subject.play(2,1)
+      subject.play(2,1)
+      subject.play(2,2)
+      expect(subject.board[2][2]).to be :o
+    end
   end
 
   describe '#check_args' do

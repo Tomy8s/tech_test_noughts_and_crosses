@@ -7,8 +7,10 @@ class Game
 
   def play(x,y)
     check_args(x,y)
-    @board[x][y] ||= current_player
-    change_turns
+    if @board[x][y].nil?
+      @board[x][y] = current_player
+      change_turns
+    end
     board
   end
 
