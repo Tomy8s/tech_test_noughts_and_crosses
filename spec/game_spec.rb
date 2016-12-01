@@ -15,6 +15,11 @@ describe Game do
     it 'raises an error if x is below 0' do
       expect{ subject.play(-1, 1) }.to raise_error ArgumentError
     end
+
+    it 'inserts a symbol into the board at the given coordinates' do
+      subject.play(0,0)
+      expect(subject.board[0][0]).to be :x
+    end
   end
 
   describe '#check_args' do
