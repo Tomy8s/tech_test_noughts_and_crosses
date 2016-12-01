@@ -15,7 +15,17 @@ class Game
     else
       raise ArgumentError, 'cell already taken'
     end
+    print_grid
     result
+  end
+
+  def print_grid
+    print board[2]
+    puts ''
+    print board[1]
+    puts ''
+    print board[0]
+    puts ''
   end
 
   def result
