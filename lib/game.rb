@@ -15,7 +15,7 @@ class Game
     else
       raise ArgumentError, 'cell already taken'
     end
-    board
+    result
   end
 
   def result
