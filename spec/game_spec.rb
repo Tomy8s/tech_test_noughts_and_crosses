@@ -28,4 +28,10 @@ describe Game do
       expect{ subject.check_args(1, 4) }.to raise_error ArgumentError
     end
   end
+
+  describe '#x_to_play?' do
+    it 'defaults to true' do
+      expect(subject.x_to_play).to be true
+    end 
+  end
 end
