@@ -40,5 +40,10 @@ describe Game do
       subject.change_turns
       expect(subject.current_player).to be :o
     end
+
+    it 'changes @current_player from :o to :x' do
+      2.times{ subject.change_turns }
+      expect(subject.current_player).to be :x
+    end
   end
 end
