@@ -36,7 +36,7 @@ class Game
     "not finished"
   end
 
-  private
+  # private
 
   def three_in_a_row?
     board.each do |row|
