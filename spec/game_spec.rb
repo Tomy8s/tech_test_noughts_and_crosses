@@ -20,6 +20,13 @@ describe Game do
       subject.play(2,1)
       expect(subject.board[1][2]).to be :x
     end
+
+    it 'does not allow overwriting of cell' do
+      subject.play(2,1)
+      subject.change_turns
+      subject.play(2,1)
+      expect(subject.board[1][2]).to be :x
+    end
   end
 
   describe '#check_args' do
