@@ -7,6 +7,7 @@ class Game
 
   def play(x,y)
     check_args(x,y)
+    board[y][x] = current_player
   end
 
   def check_args(x,y)

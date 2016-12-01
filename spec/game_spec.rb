@@ -17,8 +17,8 @@ describe Game do
     end
 
     it 'inserts a symbol into the board at the given coordinates' do
-      subject.play(0,0)
-      expect(subject.board[0][0]).to be :x
+      subject.play(2,1)
+      expect(subject.board[1][2]).to be :x
     end
   end
 
