@@ -7,6 +7,12 @@ describe Game do
     end
   end
 
+  describe '#play' do
+    it 'takes two manadtory arguments' do
+      expect(subject).to respond_to(:check_args).with(2).arguments
+    end
+  end
+
   describe '#check_args' do
     it 'takes two manadtory arguments' do
       expect(subject).to respond_to(:check_args).with(2).arguments
