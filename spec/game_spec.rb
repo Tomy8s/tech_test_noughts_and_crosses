@@ -88,7 +88,7 @@ describe Game do
     end
   end
 
-  desrcibe '#result' do
+  describe '#result' do
     it 'returns "not finished" from the outset' do
       expect(subject.result).to eq "not finished"
     end
