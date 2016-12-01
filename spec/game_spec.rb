@@ -30,7 +30,7 @@ describe Game do
   end
 
   describe '#x_to_play?' do
-    it 'defaults to true' do
+    it 'inits as true' do
       expect(subject.x_to_play).to be true
     end 
   end
