@@ -87,4 +87,10 @@ describe Game do
       expect(subject.current_player).to be :x
     end
   end
+
+  desrcibe '#result' do
+    it 'returns "not finished" from the outset' do
+      expect(subject.result).to eq "not finished"
+    end
+  end
 end
