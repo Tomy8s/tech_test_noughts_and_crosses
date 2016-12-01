@@ -6,7 +6,7 @@ class Game
   end
 
   def play(x,y)
-
+    check_args(x,y)
   end
 
   def check_args(x,y)
