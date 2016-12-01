@@ -11,5 +11,9 @@ describe Game do
     it 'takes two manadtory arguments' do
       expect(subject).to respond_to(:play).with(2).arguments
     end
+
+    it 'raises an error if x is below 0' do
+      expect{ subject.play(-1, 1) }.to raise_error ArgumentError
+    end
   end
 end
