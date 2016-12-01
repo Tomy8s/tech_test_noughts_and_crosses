@@ -21,17 +21,30 @@ describe Game do
       expect(subject.board[2][1]).to be :x
     end
 
-    it 'does not allow overwriting of cell' do
-      subject.play(2,1)
-      subject.play(2,1)
-      expect(subject.board[2][1]).to be :x
-    end
+    context 'if player attempts to play a taken cell' do
+      it 'raises an error' do
+        subject.play(2,1)
+        expect{ subject.play(2,1) }.to raise_error ArgumentError
+      end
+        
+      it 'does not allow overwriting of cell' do
+        subject.play(2,1)
+        begin
+          subject.play(2,1)
+        rescue
+        end
+        expect(subject.board[2][1]).to be :x
+      end
 
-    it 'allows a player to retake their go, instead of overwriting' do
-      subject.play(2,1)
-      subject.play(2,1)
-      subject.play(2,2)
-      expect(subject.board[2][2]).to be :o
+      it 'allows a player to retake their go, instead of overwriting' do
+        subject.play(2,1)
+        begin
+          subject.play(2,1)
+        rescue
+        end
+        subject.play(2,2)
+        expect(subject.board[2][2]).to be :o
+      end
     end
   end
 

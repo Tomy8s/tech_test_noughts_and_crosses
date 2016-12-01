@@ -10,6 +10,8 @@ class Game
     if @board[x][y].nil?
       @board[x][y] = current_player
       change_turns
+    else
+      raise ArgumentError, 'cell already taken'
     end
     board
   end
