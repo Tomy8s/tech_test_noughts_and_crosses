@@ -1,7 +1,7 @@
 require 'matrix'
 
 class Game
-  attr_accessor :board, :current_player
+  attr_reader :board, :current_player
   def initialize
     @board = Array.new(3) { Array.new(3) }
     @current_player = :x
@@ -35,6 +35,8 @@ class Game
     draw? or
     "not finished"
   end
+
+  private
 
   def three_in_a_row?
     board.each do |row|
