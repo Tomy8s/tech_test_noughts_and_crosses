@@ -7,13 +7,25 @@ describe Game do
     end
   end
 
-  describe '#play' do
+  describe '#check_args' do
     it 'takes two manadtory arguments' do
-      expect(subject).to respond_to(:play).with(2).arguments
+      expect(subject).to respond_to(:check_args).with(2).arguments
     end
 
     it 'raises an error if x is below 0' do
-      expect{ subject.play(-1, 1) }.to raise_error ArgumentError
+      expect{ subject.check_args(-1, 1) }.to raise_error ArgumentError
+    end
+
+    it 'raises an error if y is below 0' do
+      expect{ subject.check_args(1, -1) }.to raise_error ArgumentError
+    end
+
+    it 'raises an error if x is above 2' do
+      expect{ subject.check_args(4, 1) }.to raise_error ArgumentError
+    end
+
+    it 'raises an error if y is above 2' do
+      expect{ subject.check_args(1, 4) }.to raise_error ArgumentError
     end
   end
 end
