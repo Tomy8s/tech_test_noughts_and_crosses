@@ -1,5 +1,5 @@
 class Game
-  attr_reader :board, :current_player
+  attr_accessor :board, :current_player
   def initialize
     @board = Array.new(3) { Array.new(3) }
     @current_player = :x
