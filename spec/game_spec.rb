@@ -89,13 +89,18 @@ describe Game do
   end
 
   describe '#result' do
-    it 'returns "not finished" from the outset' do
-      expect(subject.result).to eq "not finished"
+    # it 'returns "not finished" from the outset' do
+    #   expect(subject.result).to eq "not finished"
+    # end
+
+    it 'returns the winner for a row of 3' do
+      subject.board[2] = [:x, :x, :x]
+      expect(subject.result).to be :x
     end
 
     it 'returns the winner for a row of 3' do
-      subject.board[0] = [:x, :x, :x]
-      expect(subject.result).to be :x
+      subject.board[0] = [:o, :o, :o]
+      expect(subject.result).to be :o
     end
   end
 end

@@ -18,6 +18,15 @@ class Game
 
   def result
     "not finished"
+    check_row
+  end
+
+  def check_row
+    board.each do |row|
+      if !row[0].nil? && !row.include?(!row[0])
+        return row[0]
+      end
+    end
   end
 
   def check_args(x,y)
