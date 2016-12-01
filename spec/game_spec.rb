@@ -6,4 +6,10 @@ describe Game do
       expect(subject.board).to eq [[nil, nil, nil],[nil, nil, nil],[nil, nil, nil]]
     end
   end
+
+  describe '#play' do
+    it 'takes two manadtory arguments' do
+      expect(subject).to respond_to(:play).with(2).arguments
+    end
+  end
 end
