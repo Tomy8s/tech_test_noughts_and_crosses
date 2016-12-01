@@ -21,8 +21,9 @@ class Game
   def result
     three_in_a_row? or
     three_in_a_column? or
+    three_diagonally? or
+    draw? or
     "not finished"
-
   end
 
   def three_in_a_row?
@@ -35,12 +36,33 @@ class Game
   end
 
   def three_in_a_column?
-    columns = Matrix[board[0], board[1], board[2]]
+    @matrix = Matrix[board[0], board[1], board[2]]
     (0..2).each do |col|
-      column = columns.column(col).to_a
+      column = @matrix.column(col).to_a
       if !column[0].nil? && column.uniq.size == 1
         return "#{column[0].capitalize} wins with three in a column!"
       end
+    end
+    false
+  end
+
+  def three_diagonally?
+    if !board[1][1].nil?
+      diagonal1 = []
+      (0..2).each do |i|
+        diagonal1 << board[i][i]
+      end
+      diagonal2 = [board[0][2], board[1][1], board[2][0]]
+      if diagonal1.uniq.size == 1 || diagonal2.uniq.size == 1
+        return "#{board[1][1].capitalize} wins with three diagonaly!"
+      end
+    end
+    false
+  end
+
+  def draw?
+    if !board.flatten.include?(nil)
+      return "It's a draw"
     end
     false
   end
